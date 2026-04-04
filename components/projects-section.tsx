@@ -2,7 +2,7 @@
 
 export function ProjectsSection() {
   return (
-    <section id="projetos" className="py-20 px-6 bg-[#fdfaf7]">
+    <section id="projetos" className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-serif font-bold mb-10 text-[#4a3728]">
           Projetos

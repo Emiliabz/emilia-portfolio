@@ -8,7 +8,7 @@ export function EducationSection() {
   const [tab, setTab] = useState<Tab>("graduacao");
 
   return (
-    <section id="formacao" className="py-24 px-6 bg-[#fdfaf7]">
+    <section id="formacao" className="py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-serif font-bold mb-10 text-center text-[#4a3728]">
           Formação e Especializações

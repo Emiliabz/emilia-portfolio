@@ -31,7 +31,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-24 px-6 bg-[#fdfaf7]">
+    <section id="sobre" className="py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
           <h2 className="text-3xl font-serif font-bold mb-6 text-[#4a3728]">

@@ -14,7 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Emília Barboza | Data Analyst & Data Scientist",
-  description: "Portfolio de Emília Barboza, especialista em Análise de Dados, Business Intelligence e proteção de dados.",
+  description:
+    "Portfolio de Emília Barboza, especialista em Análise de Dados, Business Intelligence e proteção de dados.",
 };
 
 export default function RootLayout({
@@ -27,7 +28,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${playfair.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
+      <body
+        className="min-h-full flex flex-col font-sans bg-background text-foreground"
+        suppressHydrationWarning
+      >
+        {" "}
         {children}
       </body>
     </html>
