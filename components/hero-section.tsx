@@ -1,24 +1,39 @@
 "use client";
 
+// CORREÇÃO: Linkedin e Github (com I e H maiúsculos)
+import { Linkedin, Github } from "lucide-react";
+
 export function HeroSection() {
   return (
-    <section id="home" className="pt-32 pb-20 px-6 bg-background">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        <div className="w-64 h-64 bg-muted border border-secondary/30 rounded-full flex flex-col items-center justify-center text-primary font-bold text-2xl shadow-sm mx-auto overflow-hidden">
+    <section className="pt-40 pb-24 px-6 text-center bg-[#FDFCFB]">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-6xl md:text-7xl font-serif font-bold text-[#3F2A1D] mb-6 leading-tight">
+          Analista de Dados & <br /> Estudante de ADS
+        </h1>
+        <p className="text-xl text-[#3F2A1D]/60 mb-10 max-w-2xl mx-auto italic font-serif">
+          Transformando bases de dados complexas em insights estratégicos e decisões inteligentes.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          <a 
+            href="https://www.linkedin.com/in/emiliabarboza/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-8 py-4 bg-[#0A66C2] text-white rounded-2xl font-bold hover:bg-[#084d91] transition-all shadow-md active:scale-95"
+          >
+            <Linkedin size={20} />
+            Meu LinkedIn
+          </a>
           
-          EB
-        </div>
-
-        <div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-            Decifrando dados,
-            <br />
-            <span className="text-foreground">impulsionando decisões</span>
-          </h1>
-
-          <p className="mt-4 text-foreground/80 text-lg">
-            Especialista em Análise de Dados e Business Intelligence.
-          </p>
+          <a 
+            href="https://github.com/emiliabarboza" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-8 py-4 bg-[#3F2A1D] text-white rounded-2xl font-bold hover:bg-black transition-all shadow-md active:scale-95"
+          >
+            <Github size={20} />
+            GitHub
+          </a>
         </div>
       </div>
     </section>
