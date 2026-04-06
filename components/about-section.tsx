@@ -35,8 +35,11 @@ export function AboutSection() {
                 <button
                   key={index}
                   type="button" // Garante que o clique funcione
-                  onClick={() => setActiveExp(index)}
-                  className={`px-5 py-4 rounded-xl text-[11px] font-bold text-left transition-all border ${
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveExp(index);
+                  }}
+                  className={`relative z-10 cursor-pointer flex-shrink-0 px-5 py-4 rounded-xl text-[11px] font-bold text-left transition-all border ${
                     activeExp === index 
                     ? "bg-[#8C5A3C] text-white border-[#8C5A3C] shadow-md scale-105" 
                     : "bg-white/50 text-[#3F2A1D]/60 border-transparent hover:bg-white"

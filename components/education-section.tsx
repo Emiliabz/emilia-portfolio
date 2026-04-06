@@ -78,7 +78,7 @@ export function EducationSection() {
                   <span>🔖</span> Em andamento
                 </div>
                 <p className="text-[#3F2A1D]/80 leading-relaxed italic border-t border-[#8C5A3C]/5 pt-4">
-                  {graduacao.descricao || graduacao.description}
+                  {graduacao.descricao}
                 </p>
               </div>
             </div>
