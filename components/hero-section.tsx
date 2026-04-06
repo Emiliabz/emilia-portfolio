@@ -12,7 +12,18 @@ const Github = ({ size = 24 }: { size?: number }) => (
 
 export function HeroSection() {
   return (
-    <section className="pt-40 pb-24 px-6 bg-[#FDFCFB]">
+    <section className="relative pt-40 pb-24 px-6 bg-[#FDFCFB]">
+      {/* Botão de Troca de Idioma */}
+      <div className="absolute top-6 right-6 md:right-12 flex items-center gap-3 bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-full shadow-sm border border-[#3F2A1D]/10 z-50">
+        <button className="text-sm font-bold text-[#D35400] transition-colors flex items-center gap-1.5 cursor-pointer">
+          <span className="text-lg leading-none">🇧🇷</span> PT
+        </button>
+        <span className="text-[#3F2A1D]/20 font-light">|</span>
+        <button className="text-sm font-bold text-[#3F2A1D]/40 hover:text-[#D35400] transition-colors flex items-center gap-1.5 cursor-pointer">
+          <span className="text-lg leading-none opacity-50">🇺🇸</span> EN
+        </button>
+      </div>
+
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Espaço da Foto */}
         <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-white shadow-xl flex items-center justify-center relative">

@@ -30,10 +30,13 @@ export function ProjectsSection() {
   const prevPage = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
 
   return (
-    <section id="projetos" className="py-24 px-6 bg-[#F5F1EA]/30">
+    <section id="projetos" className="py-24 px-6 bg-[#E89A6F]">
       <div className="max-w-6xl mx-auto relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#3F2A1D] leading-tight max-w-xl">Projetos feitos com Power BI e Streamlit</h2>
+          <div>
+            <span className="text-[#3F2A1D] font-black tracking-widest uppercase text-sm mb-3 block opacity-80">Portfólio</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#3F2A1D] leading-tight max-w-xl">Projetos feitos com Power BI e Streamlit</h2>
+          </div>
           
           {/* Botões de Navegação */}
           <div className="flex gap-3">
