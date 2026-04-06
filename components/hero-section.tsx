@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Espaço da Foto */}
         <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-[#FDFBF9] shadow-xl flex items-center justify-center relative">
-          <img src="/foto-perfil.png" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
+          <img src="/foto-perfil.png.jpg" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
         </div>
 
         <div className="text-center md:text-left">
