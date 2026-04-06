@@ -18,8 +18,17 @@ export function HeroSection() {
     <section className="relative pt-40 pb-24 px-6 bg-[#F5F1EA]">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Espaço da Foto */}
-        <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-[#FDFBF9] shadow-xl flex items-center justify-center relative">
-          <img src="/foto-perfil.png.jpg" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
+        <div className="relative flex-shrink-0 w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+          {/* Esfera pequena creme (topo direita) */}
+          <div className="absolute top-2 right-4 w-20 h-20 md:w-28 md:h-28 bg-[#EAE2D6] opacity-80 rounded-full"></div>
+          
+          {/* Esfera pequena esverdeada/cinza-claro (baixo esquerda) */}
+          <div className="absolute bottom-2 left-4 w-24 h-24 md:w-32 md:h-32 bg-[#D0D7DE] opacity-80 rounded-full"></div>
+          
+          {/* Esfera principal (cinza grande com a foto dentro) */}
+          <div className="w-64 h-64 md:w-80 md:h-80 bg-[#D5D9D9] rounded-full overflow-hidden border-4 border-[#FDFBF9] shadow-xl flex items-center justify-center relative z-10">
+            <img src="/foto-perfil.png.jpg" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
+          </div>
         </div>
 
         <div className="text-center md:text-left">

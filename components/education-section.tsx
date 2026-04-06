@@ -89,16 +89,28 @@ export function EducationSection() {
               {certificados
                 .filter(c => c.cat.toLowerCase() === tab.toLowerCase())
                 .map((cert, index) => (
-                  <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between">
-                    <div>
+                  <div key={index} className="group relative bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between overflow-hidden">
+                    <div className="relative z-10">
                       <div className="flex justify-between items-start mb-4">
                         <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-md ${getTagStyle(cert.tag)}`}>
                           {cert.tag}
                         </span>
                         <span className="text-[#3F2A1D]/40 text-[10px] font-medium flex items-center gap-1">🕒 {cert.horas}</span>
                       </div>
-                      <h4 className="font-bold text-[#3F2A1D] text-lg leading-tight mb-2">{cert.nome}</h4>
+                      <h4 className="font-bold text-[#3F2A1D] group-hover:text-[#8C5A3C] transition-colors text-lg leading-tight mb-2">{cert.nome}</h4>
                       <p className="text-xs text-[#3F2A1D]/50 uppercase tracking-wide font-semibold">{cert.org}</p>
+                    </div>
+                    
+                    {/* Overlay e Botão Flutuante no Hover */}
+                    <div className="absolute inset-0 bg-[#FDFBF9]/80 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+                      <a 
+                        href={cert.link || "#"} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-6 py-2.5 bg-[#3F2A1D] text-white text-sm font-bold rounded-xl hover:scale-105 transition-transform shadow-md"
+                      >
+                        {t("Visualizar Certificado", "View Certificate")}
+                      </a>
                     </div>
                   </div>
                 ))}
