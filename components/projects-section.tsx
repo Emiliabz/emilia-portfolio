@@ -28,7 +28,9 @@ export function ProjectsSection() {
   // Recorta a lista para mostrar apenas os 2 da página atual
   const currentProjects = projects.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
-  const nextPage = () => setCurrentPage((prev) => 0 ? (prevs > 
+  const nextPage = () => setCurrentPage((prev) => totalPages > 0 ? (prev + 1) % totalPages : 0);
+  const prevPage = () => setCurrentPage((prev) => totalPages > 0 ? (prev - 1 + totalPages) % totalPages : 0);
+
   return (
     <section id="projetos" className="py-24 px-6 bg-[#E5DFD3]">
       <div className="max-w-6xl mx-auto relative">
@@ -42,9 +44,11 @@ export function ProjectsSection() {
           <div className="flex gap-3">
             <button onClick={prevPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
               <ChevronLeft size={24} />
-            </button>{t("Próximos", "Next")}>
+            </button>
+            <button onClick={nextPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
               <ChevronRight size={24} />
-            </
+            </button>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
