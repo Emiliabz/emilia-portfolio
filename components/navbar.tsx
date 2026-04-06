@@ -24,23 +24,37 @@ export function Navbar() {
           <a href="#formacao" className="hover:text-[#8C5A3C] transition-colors">Formação</a>
         </div>
 
-        <div className="flex items-center gap-5">
-          <a 
-            href="https://www.linkedin.com/in/em%C3%ADlia-barboza-28b951362/?locale=en" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-[#3F2A1D]/40 hover:text-[#0A66C2] transition-colors"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a 
-            href="https://github.com/Emiliabz" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-[#3F2A1D]/40 hover:text-black transition-colors"
-          >
-            <Github size={20} />
-          </a>
+        <div className="flex items-center gap-6">
+          {/* Botão de Troca de Idioma */}
+          <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full shadow-sm border border-[#6F4E37]/10">
+            <button className="text-sm font-bold text-[#6F4E37] transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span className="text-base leading-none">🇧🇷</span> PT
+            </button>
+            <span className="text-[#8D8078]/40 font-light">|</span>
+            <button className="text-sm font-medium text-[#8D8078] hover:text-[#6F4E37] transition-colors flex items-center gap-1.5 cursor-pointer">
+              <span className="text-base leading-none opacity-80">🇺🇸</span> EN
+            </button>
+          </div>
+
+          {/* Ícones Sociais */}
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://www.linkedin.com/in/em%C3%ADlia-barboza-28b951362/?locale=en" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#8D8078] hover:text-[#0A66C2] transition-colors"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a 
+              href="https://github.com/Emiliabz" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#8D8078] hover:text-black transition-colors"
+            >
+              <Github size={20} />
+            </a>
+          </div>
         </div>
       </div>
     </nav>
