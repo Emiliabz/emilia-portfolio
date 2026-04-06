@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { AboutSection } from "@/components/about-section";
 import { EducationSection } from "@/components/education-section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -19,9 +20,7 @@ export default function Home() {
       {/* 3. Formação e Especializações (Certificados) */}
       <EducationSection />
       
-      <footer className="py-12 bg-[#3F2A1D] text-[#EBE3D5] text-center text-sm">
-        <p>© 2026 Emília Barboza • Analista de Dados</p>
-      </footer>
+      <Footer />
     </main>
   );
 }
