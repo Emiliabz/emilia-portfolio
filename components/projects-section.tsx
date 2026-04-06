@@ -32,7 +32,7 @@ export function ProjectsSection() {
     <section id="projetos" className="py-24 px-6 bg-[#F5F1EA]/30">
       <div className="max-w-6xl mx-auto relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
-          <h2 className="text-5xl font-serif font-bold text-[#3F2A1D]">Projetos</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#3F2A1D] leading-tight max-w-xl">Projetos feitos com Power BI e Streamlit</h2>
           
           {/* Botões de Navegação */}
           <div className="flex gap-3">
@@ -107,7 +107,7 @@ export function ProjectsSection() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#3F2A1D] text-white rounded-2xl font-bold hover:bg-black transition-all shadow-md active:scale-95"
           >
             <Github size={20} />
-            Acessar códigos
+            Ver todos os repositórios
           </a>
         </div>
       </div>

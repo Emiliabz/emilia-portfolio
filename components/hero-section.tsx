@@ -15,16 +15,16 @@ export function HeroSection() {
     <section className="pt-40 pb-24 px-6 bg-[#FDFCFB]">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Espaço da Foto */}
-        <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-white shadow-xl flex items-center justify-center relative">
+        <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-white shadow-xl flex items-center justify-center relative">
           <img src="/foto-perfil.png" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
         </div>
 
         <div className="text-center md:text-left">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#3F2A1D] mb-6 leading-tight">
-            Analista de Dados & <br /> Estudante de ADS
+            Data Intelligence & Analytics
           </h1>
           <p className="text-xl text-[#3F2A1D]/60 mb-10 max-w-2xl mx-auto md:mx-0 italic font-serif">
-            Transformando bases de dados complexas em insights estratégicos e decisões inteligentes.
+            Extraindo inteligência de dados complexos para gerar valor de negócio.
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -32,7 +32,7 @@ export function HeroSection() {
             href="https://www.linkedin.com/in/em%C3%ADlia-barboza-28b951362/?locale=en" 
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-8 py-4 bg-[#0A66C2] text-white rounded-2xl font-bold hover:bg-[#084d91] transition-all shadow-md active:scale-95"
+            className="flex items-center gap-2 px-8 py-4 bg-[#4682A9] text-white rounded-2xl font-bold hover:bg-[#366887] transition-all shadow-md active:scale-95"
           >
             <Linkedin size={20} />
             Meu LinkedIn
