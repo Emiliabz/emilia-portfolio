@@ -1,81 +1,89 @@
 "use client";
 
 import { useState } from "react";
-
-type Tab = "graduacao" | "dados" | "gestao" | "programacao";
+// Importando sua lista de certificados do arquivo que criamos
+import { educationData } from "@/lib/portfolio-data";
 
 export function EducationSection() {
-  const [tab, setTab] = useState<Tab>("graduacao");
+  const [tab, setTab] = useState("graduacao");
+
+  const categorias = [
+    { id: "graduacao", label: "Graduação" },
+    { id: "dados", label: "Dados & BI" },
+    { id: "gestao", label: "Gestão & Office" },
+    { id: "programacao", label: "Programação" }
+  ];
 
   return (
     <section id="formacao" className="py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-serif font-bold mb-10 text-center text-[#4a3728]">
+        <h2 className="text-3xl font-serif font-bold mb-4 text-center text-[#4a3728]">
           Formação e Especializações
         </h2>
+        <p className="text-center text-[#4a3728]/70 mb-12 max-w-2xl mx-auto">
+          Minha jornada de aprendizado contínuo em análise de dados, business intelligence e desenvolvimento.
+        </p>
 
-        {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
-          <button 
-            onClick={() => setTab("graduacao")}
-            className={`px-6 py-2 rounded-full transition-all border ${tab === "graduacao" ? "bg-[#8c5a3c] text-white border-[#8c5a3c]" : "bg-transparent text-[#4a3728] border-[#8c5a3c]/30 hover:bg-[#e6ddd3]/50"}`}
-          >
-            Graduação
-          </button>
-          <button 
-            onClick={() => setTab("dados")}
-            className={`px-6 py-2 rounded-full transition-all border ${tab === "dados" ? "bg-[#8c5a3c] text-white border-[#8c5a3c]" : "bg-transparent text-[#4a3728] border-[#8c5a3c]/30 hover:bg-[#e6ddd3]/50"}`}
-          >
-            Dados & BI
-          </button>
-          <button 
-            onClick={() => setTab("gestao")}
-            className={`px-6 py-2 rounded-full transition-all border ${tab === "gestao" ? "bg-[#8c5a3c] text-white border-[#8c5a3c]" : "bg-transparent text-[#4a3728] border-[#8c5a3c]/30 hover:bg-[#e6ddd3]/50"}`}
-          >
-            Gestão & Office
-          </button>
-          <button 
-            onClick={() => setTab("programacao")}
-            className={`px-6 py-2 rounded-full transition-all border ${tab === "programacao" ? "bg-[#8c5a3c] text-white border-[#8c5a3c]" : "bg-transparent text-[#4a3728] border-[#8c5a3c]/30 hover:bg-[#e6ddd3]/50"}`}
-          >
-            Programação
-          </button>
+        {/* Botões das Abas (Tabs) */}
+        <div className="flex justify-center gap-3 mb-12 flex-wrap">
+          {categorias.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setTab(cat.id)}
+              className={`px-6 py-2 rounded-xl border transition-all text-sm font-medium shadow-sm ${
+                tab === cat.id 
+                ? "bg-[#8c5a3c] text-white border-[#8c5a3c]" 
+                : "bg-white text-[#4a3728] border-[#8c5a3c]/10 hover:bg-[#e6ddd3]/50"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
 
-        {/* Conteúdo */}
-        <div className="min-h-[200px]">
-          {tab === "graduacao" && (
-            <div className="border border-[#8c5a3c]/20 p-8 rounded-xl bg-[#e6ddd3]/20">
-              <h3 className="font-bold text-xl text-[#4a3728]">
-                Análise e Desenvolvimento de Sistemas
-              </h3>
-              <p className="text-[#8c5a3c] font-medium">
-                Estácio de Sá - 3º semestre (2027)
+        {/* Conteúdo Dinâmico */}
+        <div className="min-h-[350px]">
+          {tab === "graduacao" ? (
+            /* EXIBIÇÃO DA GRADUAÇÃO */
+            <div className="bg-white border border-[#8c5a3c]/10 rounded-3xl p-8 shadow-sm max-w-2xl mx-auto">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-[#e6ddd3]/50 rounded-2xl flex items-center justify-center text-2xl">🎓</div>
+                <div>
+                  <p className="text-xs text-[#8c5a3c] font-bold uppercase tracking-wider">{educationData.graduacao.instituicao}</p>
+                  <h3 className="text-xl font-bold text-[#4a3728]">{educationData.graduacao.curso}</h3>
+                </div>
+              </div>
+              <p className="text-[#8c5a3c] font-medium mb-4">{educationData.graduacao.status}</p>
+              <p className="text-sm text-[#4a3728]/80 leading-relaxed border-t border-[#8c5a3c]/5 pt-4">
+                {educationData.graduacao.descricao}
               </p>
             </div>
-          )}
-
-          {tab === "dados" && (
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Power BI</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">SQL</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Python</div>
-            </div>
-          )}
-
-          {tab === "gestao" && (
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Excel Avançado</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">LGPD</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Ética</div>
-            </div>
-          )}
-
-          {tab === "programacao" && (
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Pandas</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">NumPy</div>
-              <div className="border border-[#8c5a3c]/20 p-6 rounded-xl bg-[#e6ddd3]/20 text-[#4a3728] font-semibold text-center hover:bg-[#e6ddd3]/40 transition-colors">Data Science</div>
+          ) : (
+            /* EXIBIÇÃO DOS CARDS DE CERTIFICADOS */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {educationData.certificados
+                .filter((cert) => cert.cat.toLowerCase() === tab.toLowerCase())
+                .map((cert, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white border border-[#8c5a3c]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="bg-[#e6ddd3]/40 text-[#8c5a3c] text-[10px] uppercase font-bold px-2 py-1 rounded-md">
+                          {cert.tag}
+                        </span>
+                        <span className="text-[#4a3728]/40 text-[10px] font-medium">🕒 {cert.horas}</span>
+                      </div>
+                      <h4 className="font-bold text-[#4a3728] leading-tight mb-2">
+                        {cert.nome}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-[#8c5a3c] font-medium mt-4">
+                      {cert.org}
+                    </p>
+                  </div>
+                ))}
             </div>
           )}
         </div>
