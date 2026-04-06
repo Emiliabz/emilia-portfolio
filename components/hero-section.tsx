@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/components/language-context";
 // @ts-ignore
 
 const Linkedin = ({ size = 24 }: { size?: number }) => (
@@ -11,6 +12,8 @@ const Github = ({ size = 24 }: { size?: number }) => (
 );
 
 export function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-40 pb-24 px-6 bg-[#F5F1EA]">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -24,7 +27,7 @@ export function HeroSection() {
             Data Intelligence & Analytics
           </h1>
           <p className="text-xl text-[#3F2A1D]/90 mb-10 max-w-2xl mx-auto md:mx-0 italic font-serif">
-            Extraindo inteligência de dados complexos para gerar valor de negócio.
+            {t("Extraindo inteligência de dados complexos para gerar valor de negócio.", "Extracting intelligence from complex data to generate business value.")}
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -35,7 +38,7 @@ export function HeroSection() {
             className="flex items-center gap-2 px-8 py-4 bg-[#4682A9] text-white rounded-2xl font-bold hover:bg-[#366887] transition-all shadow-md active:scale-95"
           >
             <Linkedin size={20} />
-            Meu LinkedIn
+            {t("Meu LinkedIn", "My LinkedIn")}
           </a>
           
           <a 

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { educationData } from "@/lib/portfolio-data";
+import { portfolioData } from "@/lib/portfolio-data";
+import { useLanguage } from "@/components/language-context";
 import { 
   Landmark, Armchair, Leaf, Sparkles,
   BarChart, ShieldCheck, TrendingUp, Settings,
@@ -22,102 +23,103 @@ const ListItem = ({ icon: Icon, title, children }: { icon: React.ElementType, ti
   </div>
 );
 
-const experiencias = [
-  {
-    empresa: "INSS",
-    icon: Landmark,
-    cargo: "Estagiária em Proteção e Análise de Dados",
-    local: "INSS – Gerência Executiva de Jundiaí",
-    periodo: "Set/2025 – Atual",
-    descricao: (
-      <div className="space-y-4">
-        <ListItem icon={BarChart} title="Análise de Dados:">
-          Processamento e garantia de qualidade em sistemas corporativos de larga escala.
-        </ListItem>
-        <ListItem icon={ShieldCheck} title="Governança:">
-          Proteção de dados sensíveis e garantia de conformidade com normas de segurança (LGPD).
-        </ListItem>
-        <ListItem icon={TrendingUp} title="Inteligência de Negócio:">
-          Desenvolvimento de relatórios e visualizações para otimização de fluxos internos e suporte à decisão.
-        </ListItem>
-        <ListItem icon={Settings} title="Otimização:">
-          Atuação direta na resolução de problemas técnicos e manutenção de ativos digitais.
-        </ListItem>
-      </div>
-    )
-  },
-  {
-    empresa: "Esplanada Móveis",
-    icon: Armchair,
-    cargo: "Auxiliar Administrativo",
-    local: "Esplanada Móveis",
-    periodo: "Abr/2025 – Jun/2025",
-    descricao: (
-      <div className="space-y-4">
-        <ListItem icon={BarChart} title="Gestão de Inventário:">
-          Controle e organização de planilhas utilizando Excel avançado.
-        </ListItem>
-        <ListItem icon={FolderOpen} title="Organização Documental:">
-          Arquivamento e digitalização de documentos para otimização do fluxo administrativo.
-        </ListItem>
-        <ListItem icon={Handshake} title="Suporte ao Cliente:">
-          Atendimento consultivo e resolução de problemas, garantindo a satisfação do consumidor final.
-        </ListItem>
-      </div>
-    )
-  },
-  {
-    empresa: "Eco Pousada",
-    icon: Leaf,
-    cargo: "Gestora de Operações",
-    local: "Eco Pousada Vegana Maha Devas",
-    periodo: "Mai/2021 – Fev/2025",
-    descricao: (
-      <div className="space-y-4">
-        <ListItem icon={TrendingUp} title="Análise de Performance:">
-          Acompanhamento de métricas e KPIs de desempenho digital para ajuste de estratégias de branding.
-        </ListItem>
-        <ListItem icon={Smartphone} title="Marketing Digital:">
-          Criação de conteúdo multimídia e gestão de redes sociais com foco em crescimento orgânico e tráfego pago.
-        </ListItem>
-        <ListItem icon={Users} title="Liderança de Equipe:">
-          Gestão direta de funcionários e voluntários, além da coordenação de reservas e comunicação via WhatsApp.
-        </ListItem>
-        <ListItem icon={Building} title="Gestão Operacional:">
-          Gerenciamento completo da pousada, garantindo a eficiência dos processos e qualidade da experiência do hóspede.
-        </ListItem>
-      </div>
-    )
-  },
-  {
-    empresa: "Autônoma",
-    icon: Sparkles,
-    cargo: "Empreendedora – Cosméticos Naturais",
-    local: "Autônoma",
-    periodo: "Ago/2014 – Mai/2021",
-    descricao: (
-      <div className="space-y-4">
-        <ListItem icon={Coins} title="Gestão Financeira e Custos:">
-          Análise detalhada de custos, precificação estratégica e controle completo de finanças e logística.
-        </ListItem>
-        <ListItem icon={Package} title="Planejamento de Produção:">
-          Gestão de estoque e cadeia de suprimentos por meio de planilhas de controle automatizadas.
-        </ListItem>
-        <ListItem icon={Rocket} title="Estratégia de Vendas:">
-          Desenvolvimento de táticas de vendas online e presenciais fundamentadas em análise de resultados históricos.
-        </ListItem>
-        <ListItem icon={Target} title="CRM:">
-          Atendimento personalizado e gestão de relacionamento, focando na fidelização de clientes.
-        </ListItem>
-      </div>
-    )
-  }
-];
-
 export function AboutSection() {
+  const { t, language } = useLanguage();
   const [activeExp, setActiveExp] = useState(0);
 
-  const objetivo = educationData?.objetivo || "";
+  const objetivo = portfolioData[language]?.objetivo || "";
+
+  const experiencias = [
+    {
+      empresa: "INSS",
+      icon: Landmark,
+      cargo: t("Estagiária em Proteção e Análise de Dados", "Data Analysis & Protection Intern"),
+      local: t("INSS – Gerência Executiva de Jundiaí", "INSS – Jundiaí Executive Branch"),
+      periodo: t("Set/2025 – Atual", "Sep/2025 – Present"),
+      descricao: (
+        <div className="space-y-4">
+          <ListItem icon={BarChart} title={t("Análise de Dados:", "Data Analysis:")}>
+            {t("Processamento e garantia de qualidade em sistemas corporativos de larga escala.", "Processing and quality assurance in large-scale corporate systems.")}
+          </ListItem>
+          <ListItem icon={ShieldCheck} title={t("Governança:", "Governance:")}>
+            {t("Proteção de dados sensíveis e garantia de conformidade com normas de segurança (LGPD).", "Sensitive data protection and compliance with security regulations (LGPD).")}
+          </ListItem>
+          <ListItem icon={TrendingUp} title={t("Inteligência de Negócio:", "Business Intelligence:")}>
+            {t("Desenvolvimento de relatórios e visualizações para otimização de fluxos internos e suporte à decisão.", "Development of reports and visualizations to optimize internal flows and support decision-making.")}
+          </ListItem>
+          <ListItem icon={Settings} title={t("Otimização:", "Optimization:")}>
+            {t("Atuação direta na resolução de problemas técnicos e manutenção de ativos digitais.", "Direct action in solving technical problems and maintaining digital assets.")}
+          </ListItem>
+        </div>
+      )
+    },
+    {
+      empresa: "Esplanada Móveis",
+      icon: Armchair,
+      cargo: t("Auxiliar Administrativo", "Administrative Assistant"),
+      local: "Esplanada Móveis",
+      periodo: t("Abr/2025 – Jun/2025", "Apr/2025 – Jun/2025"),
+      descricao: (
+        <div className="space-y-4">
+          <ListItem icon={BarChart} title={t("Gestão de Inventário:", "Inventory Management:")}>
+            {t("Controle e organização de planilhas utilizando Excel avançado.", "Spreadsheet control and organization using advanced Excel.")}
+          </ListItem>
+          <ListItem icon={FolderOpen} title={t("Organização Documental:", "Document Organization:")}>
+            {t("Arquivamento e digitalização de documentos para otimização do fluxo administrativo.", "Archiving and digitizing documents to optimize the administrative flow.")}
+          </ListItem>
+          <ListItem icon={Handshake} title={t("Suporte ao Cliente:", "Customer Support:")}>
+            {t("Atendimento consultivo e resolução de problemas, garantindo a satisfação do consumidor final.", "Consultative service and problem-solving, ensuring end-consumer satisfaction.")}
+          </ListItem>
+        </div>
+      )
+    },
+    {
+      empresa: "Eco Pousada",
+      icon: Leaf,
+      cargo: t("Gestora de Operações", "Operations Manager"),
+      local: "Eco Pousada Vegana Maha Devas",
+      periodo: t("Mai/2021 – Fev/2025", "May/2021 – Feb/2025"),
+      descricao: (
+        <div className="space-y-4">
+          <ListItem icon={TrendingUp} title={t("Análise de Performance:", "Performance Analysis:")}>
+            {t("Acompanhamento de métricas e KPIs de desempenho digital para ajuste de estratégias de branding.", "Monitoring metrics and digital performance KPIs to adjust branding strategies.")}
+          </ListItem>
+          <ListItem icon={Smartphone} title={t("Marketing Digital:", "Digital Marketing:")}>
+            {t("Criação de conteúdo multimídia e gestão de redes sociais com foco em crescimento orgânico e tráfego pago.", "Multimedia content creation and social media management focusing on organic growth and paid traffic.")}
+          </ListItem>
+          <ListItem icon={Users} title={t("Liderança de Equipe:", "Team Leadership:")}>
+            {t("Gestão direta de funcionários e voluntários, além da coordenação de reservas e comunicação via WhatsApp.", "Direct management of employees and volunteers, in addition to booking coordination and WhatsApp communication.")}
+          </ListItem>
+          <ListItem icon={Building} title={t("Gestão Operacional:", "Operational Management:")}>
+            {t("Gerenciamento completo da pousada, garantindo a eficiência dos processos e qualidade da experiência do hóspede.", "Complete lodge management, ensuring process efficiency and guest experience quality.")}
+          </ListItem>
+        </div>
+      )
+    },
+    {
+      empresa: "Autônoma",
+      icon: Sparkles,
+      cargo: t("Empreendedora – Cosméticos Naturais", "Entrepreneur – Natural Cosmetics"),
+      local: t("Autônoma", "Freelance"),
+      periodo: t("Ago/2014 – Mai/2021", "Aug/2014 – May/2021"),
+      descricao: (
+        <div className="space-y-4">
+          <ListItem icon={Coins} title={t("Gestão Financeira e Custos:", "Financial & Cost Management:")}>
+            {t("Análise detalhada de custos, precificação estratégica e controle completo de finanças e logística.", "Detailed cost analysis, strategic pricing, and complete control of finances and logistics.")}
+          </ListItem>
+          <ListItem icon={Package} title={t("Planejamento de Produção:", "Production Planning:")}>
+            {t("Gestão de estoque e cadeia de suprimentos por meio de planilhas de controle automatizadas.", "Inventory and supply chain management through automated control spreadsheets.")}
+          </ListItem>
+          <ListItem icon={Rocket} title={t("Estratégia de Vendas:", "Sales Strategy:")}>
+            {t("Desenvolvimento de táticas de vendas online e presenciais fundamentadas em análise de resultados históricos.", "Development of online and in-person sales tactics based on historical result analysis.")}
+          </ListItem>
+          <ListItem icon={Target} title={t("CRM:", "CRM:")}>
+            {t("Atendimento personalizado e gestão de relacionamento, focando na fidelização de clientes.", "Personalized service and relationship management, focusing on customer loyalty.")}
+          </ListItem>
+        </div>
+      )
+    }
+  ];
 
   if (experiencias.length === 0) return null;
 
@@ -126,7 +128,7 @@ export function AboutSection() {
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <h2 className="text-4xl font-serif font-bold text-[#6F4E37] mb-6 border-l-8 border-[#6F4E37] pl-4">
-            Sobre Mim
+            {t("Sobre Mim", "About Me")}
           </h2>
           <p className="text-[#8D8078] leading-relaxed text-lg max-w-3xl">
             {objetivo}
@@ -138,7 +140,7 @@ export function AboutSection() {
             <span className="w-8 h-8 bg-[#6F4E37] text-white rounded-lg flex items-center justify-center shadow-sm">
               <Briefcase size={16} />
             </span>
-            Trajetória Profissional
+            {t("Trajetória Profissional", "Professional Trajectory")}
           </h3>
 
           <div className="flex flex-col md:flex-row gap-8">

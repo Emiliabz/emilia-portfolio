@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/components/language-context";
 const Linkedin = ({ size = 24 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
 );
@@ -21,11 +22,13 @@ const FileText = ({ size = 24 }: { size?: number }) => (
 );
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-[#3F2A1D] text-[#F5F1EA] py-16 px-6">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-8">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2">
-          Vamos construir algo inteligente juntos?
+          {t("Vamos construir algo inteligente juntos?", "Let's build something smart together?")}
         </h2>
         
         <div className="flex flex-wrap justify-center items-center gap-4">
@@ -43,19 +46,19 @@ export function Footer() {
         <div className="flex flex-wrap justify-center gap-4 mt-2">
           <a href="https://wa.me/5511998481191" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-xl font-bold hover:bg-[#1da851] transition-all shadow-md active:scale-95">
             <Phone size={20} />
-            Falar por WhatsApp
+            {t("Falar por WhatsApp", "Chat on WhatsApp")}
           </a>
           
           <a href="/curriculo.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-[#F5F1EA] text-[#3F2A1D] border border-transparent rounded-xl font-bold hover:bg-[#EAE2D6] transition-all shadow-md active:scale-95">
             <FileText size={20} />
-            Ver Currículo PDF
+            {t("Ver Currículo PDF", "View Resume PDF")}
           </a>
         </div>
 
         <div className="w-full h-px bg-white/10 my-4" />
 
         <p className="text-sm text-white/60 font-medium">
-          © 2026 Emília Barboza • Analista de Dados • Jundiaí, SP
+          {t("© 2026 Emília Barboza • Analista de Dados • Jundiaí, SP", "© 2026 Emília Barboza • Data Analyst • Jundiaí, SP")}
         </p>
       </div>
     </footer>

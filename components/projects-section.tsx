@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { educationData } from "@/lib/portfolio-data";
+import { portfolioData } from "@/lib/portfolio-data";
+import { useLanguage } from "@/components/language-context";
 
 const ChevronLeft = ({ size = 24 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
@@ -16,9 +17,10 @@ const Github = ({ size = 24 }: { size?: number }) => (
 );
 
 export function ProjectsSection() {
+  const { t, language } = useLanguage();
   const [currentPage, setCurrentPage] = useState(0);
-  const projects = educationData?.projects || [];
-  const notebooks = educationData?.notebooks || [];
+  const projects = portfolioData[language]?.projects || [];
+  const notebooks = portfolioData[language]?.notebooks || [];
 
   const itemsPerPage = 2;
   const totalPages = Math.ceil(projects.length / itemsPerPage);
@@ -26,27 +28,23 @@ export function ProjectsSection() {
   // Recorta a lista para mostrar apenas os 2 da página atual
   const currentProjects = projects.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
-  const nextPage = () => setCurrentPage((prev) => (prev + 1) % totalPages);
-  const prevPage = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-
+  const nextPage = () => setCurrentPage((prev) => 0 ? (prevs > 
   return (
     <section id="projetos" className="py-24 px-6 bg-[#E5DFD3]">
       <div className="max-w-6xl mx-auto relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
           <div>
-            <span className="text-[#3F2A1D] font-black tracking-widest uppercase text-sm mb-3 block opacity-80">Portfólio</span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#3F2A1D] leading-tight max-w-xl">Projetos feitos com Power BI e Streamlit</h2>
+            <span className="text-[#3F2A1D] font-black tracking-widest uppercase text-sm mb-3 block opacity-80">{t("Portfólio", "Portfolio")}</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#3F2A1D] leading-tight max-w-xl">{t("Projetos feitos com Power BI e Streamlit", "Projects built with Power BI and Streamlit")}</h2>
           </div>
           
           {/* Botões de Navegação */}
           <div className="flex gap-3">
-            <button onClick={prevPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Anteriores">
+            <button onClick={prevPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
               <ChevronLeft size={24} />
-            </button>
-            <button onClick={nextPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Próximos">
+            </button>{t("Próximos", "Next")}>
               <ChevronRight size={24} />
-            </button>
-          </div>
+            </
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
@@ -83,7 +81,7 @@ export function ProjectsSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-3 bg-[#6F4E37] border border-transparent rounded-2xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
                 >
-                  📊 Acessar Projeto
+                  📊 {t("Acessar Projeto", "View Project")}
                 </a>
               </div>
             </div>
@@ -97,17 +95,16 @@ export function ProjectsSection() {
               key={idx} 
               onClick={() => setCurrentPage(idx)}
               className={`h-2 rounded-full transition-all ${currentPage === idx ? "bg-[#8C5A3C] w-6" : "bg-[#8C5A3C]/30 w-2"}`}
-              aria-label={`Ir para a página ${idx + 1}`}
+              aria-label={t(`Ir para a página ${idx + 1}`, `Go to page ${idx + 1}`)}
             />
           ))}
         </div>
-
         {/* Nova Seção: Notebooks & Análises (Python) */}
         <div className="mt-32">
           <div className="mb-12 text-center sm:text-left">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#3F2A1D] mb-4">Notebooks & Análises (Python)</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#3F2A1D] mb-4">{t("Notebooks & Análises (Python)", "Notebooks & Analytics (Python)")}</h2>
             <p className="text-[#3F2A1D]/70 max-w-2xl text-lg mx-auto sm:mx-0">
-              Explorações de dados, modelagem e análises desenvolvidas no Google Colab.
+              {t("Explorações de dados, modelagem e análises desenvolvidas no Google Colab.", "Data explorations, modeling, and analytics developed in Google Colab.")}
             </p>
           </div>
 
@@ -138,7 +135,7 @@ export function ProjectsSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#6F4E37] border border-transparent rounded-xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
                 >
-                  <Github size={16} /> Acessar Colab
+                  <Github size={16} /> {t("Acessar Colab", "Open in Colab")}
                 </a>
               </div>
             ))}
@@ -154,7 +151,7 @@ export function ProjectsSection() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#3F2A1D] text-white rounded-2xl font-bold hover:bg-black transition-all shadow-md active:scale-95"
           >
             <Github size={20} />
-            Ver todos os repositórios
+            {t("Ver todos os repositórios", "View all repositories")}
           </a>
         </div>
       </div>

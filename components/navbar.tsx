@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/components/language-context";
 // @ts-ignore
 
 const Linkedin = ({ size = 24 }: { size?: number }) => (
@@ -11,6 +12,9 @@ const Github = ({ size = 24 }: { size?: number }) => (
 );
 
 export function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
+  const isPt = language === "pt";
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F1EA]/90 backdrop-blur-md border-b border-[#8C5A3C]/10 px-6 py-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -19,20 +23,20 @@ export function Navbar() {
         </span>
 
         <div className="hidden md:flex gap-8 text-sm font-medium text-[#3F2A1D]/60">
-          <a href="#projetos" className="hover:text-[#8C5A3C] transition-colors">Projetos</a>
-          <a href="#sobre" className="hover:text-[#8C5A3C] transition-colors">Sobre Mim</a>
-          <a href="#formacao" className="hover:text-[#8C5A3C] transition-colors">Formação</a>
+          <a href="#projetos" className="hover:text-[#8C5A3C] transition-colors">{t("Projetos", "Projects")}</a>
+          <a href="#sobre" className="hover:text-[#8C5A3C] transition-colors">{t("Sobre Mim", "About Me")}</a>
+          <a href="#formacao" className="hover:text-[#8C5A3C] transition-colors">{t("Formação", "Education")}</a>
         </div>
 
         <div className="flex items-center gap-6">
           {/* Botão de Troca de Idioma */}
-          <div className="flex items-center gap-3 bg-[#FDFBF9] px-3 py-1.5 rounded-full shadow-sm border border-[#6F4E37]/10">
-            <button className="text-sm font-bold text-[#6F4E37] transition-colors flex items-center gap-1.5 cursor-pointer">
+          <div className="flex items-center gap-4">
+            <button onClick={() => setLanguage("pt")} className={`flex items-center gap-1 text-sm font-bold transition-colors cursor-pointer ${isPt ? "text-[#6F4E37]" : "text-[#8D8078] opacity-70 hover:opacity-100 hover:text-[#6F4E37]"}`}>
               <span className="text-base leading-none">🇧🇷</span> PT
             </button>
-            <span className="text-[#8D8078]/40 font-light">|</span>
-            <button className="text-sm font-medium text-[#8D8078] hover:text-[#6F4E37] transition-colors flex items-center gap-1.5 cursor-pointer">
-              <span className="text-base leading-none opacity-80">🇺🇸</span> EN
+            <span className="text-[#D3CDBC] font-light">|</span>
+            <button onClick={() => setLanguage("en")} className={`flex items-center gap-1 text-sm font-bold transition-colors cursor-pointer ${!isPt ? "text-[#6F4E37]" : "text-[#8D8078] opacity-70 hover:opacity-100 hover:text-[#6F4E37]"}`}>
+              <span className="text-base leading-none">🇺🇸</span> EN
             </button>
           </div>
 

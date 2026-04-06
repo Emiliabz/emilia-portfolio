@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { educationData } from "@/lib/portfolio-data";
+import { portfolioData } from "@/lib/portfolio-data";
+import { useLanguage } from "@/components/language-context";
 
 export function EducationSection() {
+  const { t, language } = useLanguage();
   const [tab, setTab] = useState("graduacao");
 
   const categorias = [
-    { id: "graduacao", label: "Graduação", emoji: "🎓" },
-    { id: "dados", label: "Dados & BI", emoji: "📊" },
-    { id: "gestao", label: "Gestão & Office", emoji: "📋" },
-    { id: "programacao", label: "Programação", emoji: "</>" }
+    { id: "graduacao", label: t("Graduação", "Degree"), emoji: "🎓" },
+    { id: "dados", label: t("Dados & BI", "Data & BI"), emoji: "📊" },
+    { id: "gestao", label: t("Gestão & Office", "Management & Office"), emoji: "📋" },
+    { id: "programacao", label: t("Programação", "Programming"), emoji: "</>" }
   ];
 
   const getTagStyle = (tag: string) => {
@@ -31,17 +33,17 @@ export function EducationSection() {
     return "bg-[#EBE3D5] text-[#3F2A1D]";
   };
 
-  const certificados = educationData?.certificados || [];
-  const graduacao = educationData?.graduacao;
+  const certificados = portfolioData[language]?.certificados || [];
+  const graduacao = portfolioData[language]?.graduacao;
 
   return (
     <section id="formacao" className="py-24 px-6 bg-[#F5F1EA]">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-serif font-bold text-center mb-4 text-[#3F2A1D]">
-          Formação e Especializações
+          {t("Formação e Especializações", "Education & Specializations")}
         </h2>
         <p className="text-center text-[#3F2A1D]/70 mb-12 max-w-2xl mx-auto italic">
-          Minha jornada de aprendizado contínuo em análise de dados, business intelligence e desenvolvimento.
+          {t("Minha jornada de aprendizado contínuo em análise de dados, business intelligence e desenvolvimento.", "My continuous learning journey in data analysis, business intelligence, and development.")}
         </p>
 
         <div className="flex justify-center gap-3 mb-16 flex-wrap">
@@ -75,7 +77,7 @@ export function EducationSection() {
               </div>
               <div className="p-8">
                 <div className="flex items-center gap-2 text-[#8C5A3C] font-bold mb-4">
-                  <span>🔖</span> Em andamento
+                  <span>🔖</span> {t("Em andamento", "In progress")}
                 </div>
                 <p className="text-[#3F2A1D]/80 leading-relaxed italic border-t border-[#8C5A3C]/5 pt-4">
                   {graduacao.descricao}
@@ -106,7 +108,7 @@ export function EducationSection() {
         
         {tab !== "graduacao" && (
           <div className="text-center mt-12 text-[#3F2A1D]/40 text-sm">
-             {certificados.filter(c => c.cat.toLowerCase() === tab.toLowerCase()).length} certificados em {categorias.find(c => c.id === tab)?.label}
+             {certificados.filter(c => c.cat.toLowerCase() === tab.toLowerCase()).length} {t("certificados em", "certificates in")} {categorias.find(c => c.id === tab)?.label}
           </div>
         )}
       </div>
