@@ -30,7 +30,7 @@ export function ProjectsSection() {
   const prevPage = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
 
   return (
-    <section id="projetos" className="py-24 px-6 bg-[#A67B5B]">
+    <section id="projetos" className="py-24 px-6 bg-[#E5DFD3]">
       <div className="max-w-6xl mx-auto relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
           <div>
@@ -81,7 +81,7 @@ export function ProjectsSection() {
                   href={proj.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-[#F5F1EA] border border-[#8C5A3C]/10 rounded-2xl text-[#3F2A1D] font-bold text-sm hover:bg-[#8C5A3C] hover:text-white transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-[#6F4E37] border border-transparent rounded-2xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
                 >
                   📊 Acessar Projeto
                 </a>
@@ -136,7 +136,7 @@ export function ProjectsSection() {
                   href={nb.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#F5F1EA] border border-[#8C5A3C]/10 rounded-xl text-[#3F2A1D] font-bold text-sm hover:bg-[#8C5A3C] hover:text-white transition-all shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#6F4E37] border border-transparent rounded-xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
                 >
                   <Github size={16} /> Acessar Colab
                 </a>
