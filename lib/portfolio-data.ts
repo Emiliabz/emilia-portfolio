@@ -8,33 +8,6 @@ export const educationData = {
     descricao: "Formação superior focada em desenvolvimento de software, análise de sistemas, banco de dados e metodologias ágeis."
   },
 
-  experiencias: [
-    {
-      cargo: "Estagiária em Proteção, Análise de Dados e Suporte Administrativo",
-      empresa: "INSS – Gerência Executiva de Jundiaí",
-      periodo: "set/2025 – atual",
-      descricao: "Processamento, análise e garantia de qualidade de dados em sistemas corporativos | Governança e proteção de dados sensíveis, assegurando conformidade | Criação de planilhas, gráficos e relatórios para suporte à decisão | Organização de documentos e otimização de fluxos de processos internos | Suporte e resolução em problemas, manutenção e instalação de equipamentos."
-    },
-    {
-      cargo: "Auxiliar Administrativo",
-      empresa: "Esplanada Móveis",
-      periodo: "abr/2025 – jun/2025",
-      descricao: "Controle de planilhas de estoque e atividades internas no Excel | Organização e arquivamento de documentos | Atendimento ao cliente e suporte administrativo."
-    },
-    {
-      cargo: "Gestora de Marketing Digital e Operações",
-      empresa: "Eco Pousada Vegana Maha Devas",
-      periodo: "mai/2021 – fev/2025",
-      descricao: "Gerenciamento da Pousada | Gestão de funcionários e voluntários | Criação e manutenção de redes sociais com crescimento orgânico e tráfego pago | Criação e edição de conteúdo multimídia para engajamento e branding | Acompanhamento de métricas e KPIs de desempenho digital | Gestão de reservas e comunicação com clientes via WhatsApp."
-    },
-    {
-      cargo: "Empreendedora – Cosméticos Naturais",
-      empresa: "Autônoma",
-      periodo: "ago/2014 – mai/2021",
-      descricao: "Controle completo de estoque, finanças e logística por meio de planilhas | Análise de custos, precificação e gestão de produção | Desenvolvimento de estratégias de vendas online e presencial com base em resultados | Atendimento ao cliente e gestão de relacionamento."
-    }
-  ],
-
   projects: [
     {
       title: "CineData",
@@ -103,5 +76,29 @@ export const educationData = {
     { nome: "Redação Oficial e Noções de SEI", horas: "10h", org: "Enap", cat: "gestao", tag: "Oficial" },
     { nome: "Prevenção e Enfrentamento ao Assédio", horas: "12h", org: "INSS", cat: "gestao", tag: "Ética" },
     { nome: "Workshop - Microsoft Office 365", horas: "9h", org: "INSS", cat: "gestao", tag: "Office" }
+  ],
+
+  notebooks: [
+    {
+      title: "Análise de Vendas (EDA)",
+      description: "Exploração de dados e identificação de padrões de sazonalidade.",
+      tags: ["🐼 Pandas", "📊 Matplotlib", "📈 Seaborn"],
+      codeSnippet: "import pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('vendas.csv')\ndf.groupby('mes')['valor'].sum().plot()",
+      link: "https://github.com/Emiliabz"
+    },
+    {
+      title: "Previsão de Churn",
+      description: "Modelo de Machine Learning para prever a probabilidade de cancelamento.",
+      tags: ["⚙️ Scikit-learn", "🐼 Pandas", "🌳 XGBoost"],
+      codeSnippet: "from sklearn.ensemble import RandomForestClassifier\n\nmodel = RandomForestClassifier()\nmodel.fit(X_train, y_train)\npreds = model.predict(X_test)",
+      link: "https://github.com/Emiliabz"
+    },
+    {
+      title: "Segmentação de Clientes",
+      description: "Clusterização de clientes baseada em comportamento de compra.",
+      tags: ["⚙️ Scikit-learn", "📊 Matplotlib", "🐼 Pandas"],
+      codeSnippet: "from sklearn.cluster import KMeans\n\nkmeans = KMeans(n_clusters=4)\nlabels = kmeans.fit_predict(X)\ndf['Cluster'] = labels",
+      link: "https://github.com/Emiliabz"
+    }
   ]
 };

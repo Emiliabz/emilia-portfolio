@@ -23,7 +23,7 @@ export function HeroSection() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#3F2A1D] mb-6 leading-tight">
             Data Intelligence & Analytics
           </h1>
-          <p className="text-xl text-[#3F2A1D]/60 mb-10 max-w-2xl mx-auto md:mx-0 italic font-serif">
+          <p className="text-xl text-[#3F2A1D]/90 mb-10 max-w-2xl mx-auto md:mx-0 italic font-serif">
             Extraindo inteligência de dados complexos para gerar valor de negócio.
           </p>
 

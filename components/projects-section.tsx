@@ -18,6 +18,7 @@ const Github = ({ size = 24 }: { size?: number }) => (
 export function ProjectsSection() {
   const [currentPage, setCurrentPage] = useState(0);
   const projects = educationData?.projects || [];
+  const notebooks = educationData?.notebooks || [];
 
   const itemsPerPage = 2;
   const totalPages = Math.ceil(projects.length / itemsPerPage);
@@ -98,8 +99,51 @@ export function ProjectsSection() {
           ))}
         </div>
 
+        {/* Nova Seção: Notebooks & Análises (Python) */}
+        <div className="mt-32">
+          <div className="mb-12 text-center sm:text-left">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#3F2A1D] mb-4">Notebooks & Análises (Python)</h2>
+            <p className="text-[#3F2A1D]/70 max-w-2xl text-lg mx-auto sm:mx-0">
+              Explorações de dados, modelagem e análises desenvolvidas no Google Colab.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {notebooks.map((nb, index) => (
+              <div key={index} className="bg-white border border-[#8C5A3C]/10 rounded-[1.5rem] p-6 shadow-sm transition-all hover:shadow-md flex flex-col">
+                <h3 className="text-xl font-serif font-bold text-[#3F2A1D] mb-2">{nb.title}</h3>
+                <p className="text-[#3F2A1D]/70 text-sm mb-5 line-clamp-2">{nb.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {nb.tags?.map((tag, tIndex) => (
+                    <span key={tIndex} className="bg-[#E7F0F4] text-[#4682A9] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Snippet de Código */}
+                <div className="bg-[#1E1E1E] rounded-xl p-4 mb-6 mt-auto overflow-hidden">
+                  <pre className="text-[#D4D4D4] text-[11px] font-mono overflow-x-auto whitespace-pre">
+                    <code>{nb.codeSnippet}</code>
+                  </pre>
+                </div>
+
+                <a 
+                  href={nb.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#F5F1EA] border border-[#8C5A3C]/10 rounded-xl text-[#3F2A1D] font-bold text-sm hover:bg-[#8C5A3C] hover:text-white transition-all shadow-sm"
+                >
+                  <Github size={16} /> Acessar Colab
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Botão Acessar Códigos (GitHub) */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-16">
           <a 
             href="https://github.com/Emiliabz" 
             target="_blank"
