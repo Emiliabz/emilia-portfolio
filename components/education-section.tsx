@@ -13,13 +13,28 @@ export function EducationSection() {
     { id: "programacao", label: "Programação", emoji: "</>" }
   ];
 
-  // Função para definir a cor da tag igual ao print
+  // Cores calibradas conforme os seus prints do v0
   const getTagStyle = (tag: string) => {
     const t = tag.toLowerCase();
-    if (t.includes("power bi")) return "bg-[#E7F0F4] text-[#4682A9]"; // Azul
-    if (t.includes("sql")) return "bg-[#FDF2E9] text-[#D35400]";      // Laranja
-    if (t.includes("python")) return "bg-[#F4ECF7] text-[#8E44AD]";   // Roxo
-    if (t.includes("pandas") || t.includes("data")) return "bg-[#E9F7EF] text-[#27AE60]"; // Verde
+    
+    // Tons Terracota/Laranja (Programação/Python/Pandas/SQL)
+    if (t.includes("python") || t.includes("pandas") || t.includes("numpy") || t.includes("data science")) {
+      return "bg-[#F5E6E0] text-[#A0522D]"; 
+    }
+    if (t.includes("sql")) {
+      return "bg-[#FDF2E9] text-[#D35400]";
+    }
+
+    // Tons Cinza/Azulados (Gestão/LGPD/Excel)
+    if (t.includes("excel")) return "bg-[#EAE2D6] text-[#8C7B6C]"; 
+    if (t.includes("lgpd")) return "bg-[#D0D7DE] text-[#57606A]";
+    if (t.includes("redação") || t.includes("ética") || t.includes("oficial")) {
+      return "bg-[#EAE2D6] text-[#8C7B6C]";
+    }
+    
+    // Azuis (Power BI & Qlik)
+    if (t.includes("power bi") || t.includes("qlik")) return "bg-[#E7F0F4] text-[#4682A9]";
+
     return "bg-[#EBE3D5] text-[#3F2A1D]"; // Padrão bege
   };
 
@@ -33,7 +48,7 @@ export function EducationSection() {
           Minha jornada de aprendizado contínuo em análise de dados, business intelligence e desenvolvimento.
         </p>
 
-        {/* Tabs com Estilo do v0 */}
+        {/* Menu de Abas */}
         <div className="flex justify-center gap-3 mb-16 flex-wrap">
           {categorias.map((cat) => (
             <button
@@ -53,7 +68,7 @@ export function EducationSection() {
 
         <div className="min-h-[400px]">
           {tab === "graduacao" ? (
-            /* GRADUAÇÃO COM DESIGN DO PRINT */
+            /* DESIGN DA GRADUAÇÃO IGUAL AO SEU PRINT */
             <div className="bg-white border border-[#8C5A3C]/10 rounded-3xl overflow-hidden shadow-sm max-w-3xl mx-auto">
               <div className="bg-[#D5D9D9] p-8 flex items-center gap-6">
                 <div className="w-16 h-16 bg-[#EBE3D5] rounded-2xl flex items-center justify-center text-3xl shadow-inner">🎓</div>
@@ -63,17 +78,17 @@ export function EducationSection() {
                   <p className="text-[#3F2A1D]/80 font-medium mt-1">{educationData.graduacao.status}</p>
                 </div>
               </div>
-              <div className="p-8 border-t border-[#8C5A3C]/5">
+              <div className="p-8">
                 <div className="flex items-center gap-2 text-[#8C5A3C] font-bold mb-4">
                   <span>🔖</span> Em andamento
                 </div>
-                <p className="text-[#3F2A1D]/80 leading-relaxed">
-                  {educationData.graduacao.descricao}
+                <p className="text-[#3F2A1D]/80 leading-relaxed italic border-t border-[#8C5A3C]/5 pt-4">
+                  {educationData.graduacao.description || educationData.graduacao.descricao}
                 </p>
               </div>
             </div>
           ) : (
-            /* CERTIFICADOS COM TAGS COLORIDAS */
+            /* CARDS COLORIDOS DOS CERTIFICADOS */
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {educationData.certificados
                 .filter(c => c.cat.toLowerCase() === tab.toLowerCase())
@@ -84,18 +99,23 @@ export function EducationSection() {
                         <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-md ${getTagStyle(cert.tag)}`}>
                           {cert.tag}
                         </span>
-                        <span className="text-[#3F2A1D]/40 text-xs flex items-center gap-1">
-                          🕒 {cert.horas}
-                        </span>
+                        <span className="text-[#3F2A1D]/40 text-[10px] font-medium flex items-center gap-1">🕒 {cert.horas}</span>
                       </div>
-                      <h4 className="font-bold text-[#3F2A1D] text-lg leading-tight mb-1">{cert.nome}</h4>
-                      <p className="text-sm text-[#3F2A1D]/50">{cert.org}</p>
+                      <h4 className="font-bold text-[#3F2A1D] text-lg leading-tight mb-2">{cert.nome}</h4>
+                      <p className="text-xs text-[#3F2A1D]/50 uppercase tracking-wide font-semibold">{cert.org}</p>
                     </div>
                   </div>
                 ))}
             </div>
           )}
         </div>
+        
+        {/* Contador embaixo igual ao print */}
+        {tab !== "graduacao" && (
+          <div className="text-center mt-12 text-[#3F2A1D]/40 text-sm">
+             {educationData.certificados.filter(c => c.cat === tab).length} certificados em {categorias.find(c => c.id === tab)?.label}
+          </div>
+        )}
       </div>
     </section>
   );
