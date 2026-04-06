@@ -12,10 +12,10 @@ const Github = ({ size = 24 }: { size?: number }) => (
 
 export function HeroSection() {
   return (
-    <section className="relative pt-40 pb-24 px-6 bg-[#FDFCFB]">
+    <section className="relative pt-40 pb-24 px-6 bg-[#F5F1EA]">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Espaço da Foto */}
-        <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-white shadow-xl flex items-center justify-center relative">
+        <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-[#EAE2D6] rounded-full overflow-hidden border-4 border-[#FDFBF9] shadow-xl flex items-center justify-center relative">
           <img src="/foto-perfil.png" alt="Foto de Emília Barboza" className="w-full h-full object-cover" />
         </div>
 

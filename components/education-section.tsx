@@ -53,7 +53,7 @@ export function EducationSection() {
               className={`px-5 py-2.5 rounded-xl border transition-all text-sm font-medium flex items-center gap-2 shadow-sm ${
                 tab === cat.id 
                 ? "bg-[#8C5A3C] text-white border-[#8C5A3C]" 
-                : "bg-white text-[#3F2A1D] border-[#8C5A3C]/10 hover:bg-[#EBE3D5]"
+                : "bg-[#FDFBF9] text-[#3F2A1D] border-[#8C5A3C]/10 hover:bg-[#EBE3D5]"
               }`}
             >
               <span className="text-xs opacity-70">{cat.emoji}</span>
@@ -64,7 +64,7 @@ export function EducationSection() {
 
         <div className="min-h-[400px]">
           {tab === "graduacao" && graduacao ? (
-            <div className="bg-white border border-[#8C5A3C]/10 rounded-3xl overflow-hidden shadow-sm max-w-3xl mx-auto">
+            <div className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-3xl overflow-hidden shadow-sm max-w-3xl mx-auto">
               <div className="bg-[#D5D9D9] p-8 flex items-center gap-6">
                 <div className="w-16 h-16 bg-[#EBE3D5] rounded-2xl flex items-center justify-center text-3xl shadow-inner">🎓</div>
                 <div>
@@ -87,7 +87,7 @@ export function EducationSection() {
               {certificados
                 .filter(c => c.cat.toLowerCase() === tab.toLowerCase())
                 .map((cert, index) => (
-                  <div key={index} className="bg-white border border-[#8C5A3C]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between">
+                  <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-start mb-4">
                         <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-md ${getTagStyle(cert.tag)}`}>

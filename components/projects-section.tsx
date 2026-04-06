@@ -30,7 +30,7 @@ export function ProjectsSection() {
   const prevPage = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
 
   return (
-    <section id="projetos" className="py-24 px-6 bg-[#E89A6F]">
+    <section id="projetos" className="py-24 px-6 bg-[#A67B5B]">
       <div className="max-w-6xl mx-auto relative">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
           <div>
@@ -40,10 +40,10 @@ export function ProjectsSection() {
           
           {/* Botões de Navegação */}
           <div className="flex gap-3">
-            <button onClick={prevPage} className="p-3 bg-white border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Anteriores">
+            <button onClick={prevPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Anteriores">
               <ChevronLeft size={24} />
             </button>
-            <button onClick={nextPage} className="p-3 bg-white border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Próximos">
+            <button onClick={nextPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label="Próximos">
               <ChevronRight size={24} />
             </button>
           </div>
@@ -51,7 +51,7 @@ export function ProjectsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
           {currentProjects.map((proj, index) => (
-            <div key={index} className="bg-white border border-[#8C5A3C]/10 rounded-[2.5rem] p-10 shadow-sm transition-all hover:shadow-md flex flex-col">
+            <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2.5rem] p-10 shadow-sm transition-all hover:shadow-md flex flex-col">
               <h3 className="text-3xl font-serif font-bold text-[#3F2A1D] mb-4">{proj.title}</h3>
               
               <p className="text-[#3F2A1D]/70 text-base mb-8 leading-relaxed">
@@ -113,7 +113,7 @@ export function ProjectsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {notebooks.map((nb, index) => (
-              <div key={index} className="bg-white border border-[#8C5A3C]/10 rounded-[1.5rem] p-6 shadow-sm transition-all hover:shadow-md flex flex-col">
+              <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[1.5rem] p-6 shadow-sm transition-all hover:shadow-md flex flex-col">
                 <h3 className="text-xl font-serif font-bold text-[#3F2A1D] mb-2">{nb.title}</h3>
                 <p className="text-[#3F2A1D]/70 text-sm mb-5 line-clamp-2">{nb.description}</p>
 

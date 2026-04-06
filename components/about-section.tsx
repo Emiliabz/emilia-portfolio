@@ -122,7 +122,7 @@ export function AboutSection() {
   if (experiencias.length === 0) return null;
 
   return (
-    <section id="sobre" className="py-24 px-6 bg-white">
+    <section id="sobre" className="py-24 px-6 bg-[#F5F1EA]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <h2 className="text-4xl font-serif font-bold text-[#6F4E37] mb-6 border-l-8 border-[#6F4E37] pl-4">
@@ -133,7 +133,7 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="bg-[#F5F1EA] p-8 md:p-10 rounded-3xl shadow-sm border border-[#6F4E37]/5">
+        <div className="bg-[#FDFBF9] p-8 md:p-10 rounded-3xl shadow-sm border border-[#6F4E37]/5">
           <h3 className="text-xl font-bold text-[#6F4E37] mb-8 flex items-center gap-3 uppercase tracking-tighter">
             <span className="w-8 h-8 bg-[#6F4E37] text-white rounded-lg flex items-center justify-center shadow-sm">
               <Briefcase size={16} />
@@ -154,7 +154,7 @@ export function AboutSection() {
                   className={`relative z-10 cursor-pointer flex-shrink-0 px-6 py-5 rounded-2xl text-base md:text-lg font-bold text-left transition-all border flex items-center gap-3 ${
                     activeExp === index 
                     ? "bg-[#6F4E37] text-white border-transparent shadow-lg scale-105" 
-                    : "bg-white text-[#8D8078] border border-[#6F4E37]/10 hover:bg-[#FDFBF9] hover:text-[#6F4E37]"
+                    : "bg-[#F5F1EA] text-[#8D8078] border border-[#6F4E37]/10 hover:bg-white hover:text-[#6F4E37]"
                   }`}
                 >
                   <exp.icon className={`w-5 h-5 shrink-0 ${activeExp === index ? "text-white" : "text-[#6F4E37]"}`} />
@@ -163,7 +163,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            <div className="flex-1 min-h-[280px] bg-[#FDFBF9] p-8 rounded-2xl border border-[#6F4E37]/10 shadow-sm transition-all">
+            <div className="flex-1 min-h-[280px] bg-[#F5F1EA] p-8 rounded-2xl border border-[#6F4E37]/10 shadow-sm transition-all">
               <div className="mb-6">
                 <h4 className="text-2xl font-bold text-[#6F4E37] leading-tight mb-2">
                   {experiencias[activeExp].cargo}
@@ -172,7 +172,7 @@ export function AboutSection() {
                   <span className="text-[#A67B5B] font-bold text-base flex items-center gap-1.5">
                     {experiencias[activeExp].local}
                   </span>
-                  <span className="text-[10px] font-black text-[#8D8078] uppercase tracking-[0.2em] bg-white border border-[#8D8078]/10 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                  <span className="text-[10px] font-black text-[#8D8078] uppercase tracking-[0.2em] bg-[#FDFBF9] border border-[#8D8078]/10 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
                     {experiencias[activeExp].periodo}
                   </span>
                 </div>

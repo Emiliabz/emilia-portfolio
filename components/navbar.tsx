@@ -12,7 +12,7 @@ const Github = ({ size = 24 }: { size?: number }) => (
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#8C5A3C]/10 px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F1EA]/90 backdrop-blur-md border-b border-[#8C5A3C]/10 px-6 py-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <span className="text-xl font-serif font-bold text-[#3F2A1D]">
           Emília Barboza
@@ -26,7 +26,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-6">
           {/* Botão de Troca de Idioma */}
-          <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full shadow-sm border border-[#6F4E37]/10">
+          <div className="flex items-center gap-3 bg-[#FDFBF9] px-3 py-1.5 rounded-full shadow-sm border border-[#6F4E37]/10">
             <button className="text-sm font-bold text-[#6F4E37] transition-colors flex items-center gap-1.5 cursor-pointer">
               <span className="text-base leading-none">🇧🇷</span> PT
             </button>
