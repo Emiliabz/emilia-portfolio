@@ -26,7 +26,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-5">
           <a 
-            href="https://www.linkedin.com/in/emiliabarboza/" 
+            href="https://www.linkedin.com/in/em%C3%ADlia-barboza-28b951362/?locale=en" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-[#3F2A1D]/40 hover:text-[#0A66C2] transition-colors"
@@ -34,7 +34,7 @@ export function Navbar() {
             <Linkedin size={20} />
           </a>
           <a 
-            href="https://github.com/emiliabarboza" 
+            href="https://github.com/Emiliabz" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-[#3F2A1D]/40 hover:text-black transition-colors"
