@@ -64,7 +64,7 @@ export function ProjectsSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
-          {currentProjects.map((proj, index) => (
+          {currentProjects.map((proj: any, index: number) => (
             <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2.5rem] p-10 shadow-sm transition-all hover:shadow-md flex flex-col">
               <h3 className="text-3xl font-serif font-bold text-[#3F2A1D] mb-4">{proj.title}</h3>
               
@@ -73,7 +73,7 @@ export function ProjectsSection() {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {proj.tags?.map((tag, tIndex) => (
+                {proj.tags?.map((tag: string, tIndex: number) => (
                   <span key={tIndex} className={`text-[10px] font-bold px-4 py-1.5 rounded-full uppercase ${getTagStyle(tag)}`}>
                     {tag}
                   </span>
@@ -81,7 +81,7 @@ export function ProjectsSection() {
               </div>
 
               <ul className="space-y-4 mb-10">
-                {proj.features?.map((feat, fIndex) => (
+                {proj.features?.map((feat: string, fIndex: number) => (
                   <li key={fIndex} className="flex items-center gap-3 text-sm text-[#3F2A1D]/80">
                     <span className="text-[#8C5A3C] font-bold text-lg leading-none">›</span>
                     {feat}
@@ -106,7 +106,7 @@ export function ProjectsSection() {
 
         {/* Bolinhas Indicadoras do Slideshow */}
         <div className="flex justify-center gap-2 mt-12">
-          {Array.from({ length: totalPages }).map((_, idx) => (
+          {Array.from({ length: totalPages }).map((_, idx: number) => (
             <button 
               key={idx} 
               onClick={() => setCurrentPage(idx)}
@@ -125,13 +125,13 @@ export function ProjectsSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {notebooks.map((nb, index) => (
+            {notebooks.map((nb: any, index: number) => (
               <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[1.5rem] p-6 shadow-sm transition-all hover:shadow-md flex flex-col">
                 <h3 className="text-xl font-serif font-bold text-[#3F2A1D] mb-2">{nb.title}</h3>
                 <p className="text-[#3F2A1D]/70 text-sm mb-5 line-clamp-2">{nb.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-5">
-                  {nb.tags?.map((tag, tIndex) => (
+                  {nb.tags?.map((tag: string, tIndex: number) => (
                     <span key={tIndex} className="bg-[#E7F0F4] text-[#4682A9] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
                       {tag}
                     </span>

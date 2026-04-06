@@ -87,8 +87,8 @@ export function EducationSection() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {certificados
-                .filter(c => c.cat.toLowerCase() === tab.toLowerCase())
-                .map((cert, index) => (
+                .filter((c: any) => c.cat.toLowerCase() === tab.toLowerCase())
+                .map((cert: any, index: number) => (
                   <div key={index} className="group relative bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between overflow-hidden">
                     <div className="relative z-10">
                       <div className="flex justify-between items-start mb-4">
@@ -120,7 +120,7 @@ export function EducationSection() {
         
         {tab !== "graduacao" && (
           <div className="text-center mt-12 text-[#3F2A1D]/40 text-sm">
-             {certificados.filter(c => c.cat.toLowerCase() === tab.toLowerCase()).length} {t("certificados em", "certificates in")} {categorias.find(c => c.id === tab)?.label}
+             {certificados.filter((c: any) => c.cat.toLowerCase() === tab.toLowerCase()).length} {t("certificados em", "certificates in")} {categorias.find(c => c.id === tab)?.label}
           </div>
         )}
       </div>
