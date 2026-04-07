@@ -63,13 +63,13 @@ export function ProjectsSection() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[380px]">
           {currentProjects.map((proj: any, index: number) => (
-            <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2.5rem] overflow-hidden shadow-sm transition-all hover:shadow-md flex flex-col group">
+            <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2rem] overflow-hidden shadow-sm transition-all hover:shadow-md flex flex-col group">
               
               {/* Imagem de Prévia com Zoom no Hover */}
               {proj.image && (
-                <div className="w-full h-[220px] overflow-hidden shrink-0 border-b border-[#8C5A3C]/10">
+                <div className="w-full h-[160px] overflow-hidden shrink-0 border-b border-[#8C5A3C]/10">
                   <img
                     src={proj.image}
                     alt={`Preview do projeto ${proj.title}`}
@@ -78,14 +78,14 @@ export function ProjectsSection() {
                 </div>
               )}
 
-              <div className="p-10 flex flex-col flex-1">
-                <h3 className="text-3xl font-serif font-bold text-[#3F2A1D] mb-4">{proj.title}</h3>
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-2xl font-serif font-bold text-[#3F2A1D] mb-2">{proj.title}</h3>
                 
-                <p className="text-[#3F2A1D]/70 text-base mb-8 leading-relaxed">
+                <p className="text-[#3F2A1D]/70 text-sm mb-4 leading-relaxed">
                   {proj.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {proj.tags?.map((tag: string, tIndex: number) => (
                     <span key={tIndex} className={`text-[10px] font-bold px-4 py-1.5 rounded-full uppercase ${getTagStyle(tag)}`}>
                       {tag}
@@ -93,9 +93,9 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <ul className="space-y-4 mb-10">
+                <ul className="space-y-2 mb-4">
                   {proj.features?.map((feat: string, fIndex: number) => (
-                    <li key={fIndex} className="flex items-center gap-3 text-sm text-[#3F2A1D]/80">
+                    <li key={fIndex} className="flex items-center gap-2 text-sm text-[#3F2A1D]/80">
                       <span className="text-[#8C5A3C] font-bold text-lg leading-none">›</span>
                       {feat}
                     </li>
@@ -103,7 +103,7 @@ export function ProjectsSection() {
                 </ul>
 
                 {/* O "mt-auto" força o botão a ficar sempre alinhado na base do card */}
-                <div className="mt-auto pt-4">
+                <div className="mt-auto mt-4">
                   <a 
                     href={proj.link} 
                     target="_blank" 
