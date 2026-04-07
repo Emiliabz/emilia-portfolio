@@ -65,40 +65,54 @@ export function ProjectsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[450px]">
           {currentProjects.map((proj: any, index: number) => (
-            <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2.5rem] p-10 shadow-sm transition-all hover:shadow-md flex flex-col">
-              <h3 className="text-3xl font-serif font-bold text-[#3F2A1D] mb-4">{proj.title}</h3>
+            <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2.5rem] overflow-hidden shadow-sm transition-all hover:shadow-md flex flex-col group">
               
-              <p className="text-[#3F2A1D]/70 text-base mb-8 leading-relaxed">
-                {proj.description}
-              </p>
+              {/* Imagem de Prévia com Zoom no Hover */}
+              {proj.image && (
+                <div className="w-full h-[220px] overflow-hidden shrink-0 border-b border-[#8C5A3C]/10">
+                  <img
+                    src={proj.image}
+                    alt={`Preview do projeto ${proj.title}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              )}
 
-              <div className="flex flex-wrap gap-2 mb-8">
-                {proj.tags?.map((tag: string, tIndex: number) => (
-                  <span key={tIndex} className={`text-[10px] font-bold px-4 py-1.5 rounded-full uppercase ${getTagStyle(tag)}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <div className="p-10 flex flex-col flex-1">
+                <h3 className="text-3xl font-serif font-bold text-[#3F2A1D] mb-4">{proj.title}</h3>
+                
+                <p className="text-[#3F2A1D]/70 text-base mb-8 leading-relaxed">
+                  {proj.description}
+                </p>
 
-              <ul className="space-y-4 mb-10">
-                {proj.features?.map((feat: string, fIndex: number) => (
-                  <li key={fIndex} className="flex items-center gap-3 text-sm text-[#3F2A1D]/80">
-                    <span className="text-[#8C5A3C] font-bold text-lg leading-none">›</span>
-                    {feat}
-                  </li>
-                ))}
-              </ul>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {proj.tags?.map((tag: string, tIndex: number) => (
+                    <span key={tIndex} className={`text-[10px] font-bold px-4 py-1.5 rounded-full uppercase ${getTagStyle(tag)}`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              {/* O "mt-auto" força o botão a ficar sempre alinhado na base do card */}
-              <div className="mt-auto pt-4">
-                <a 
-                  href={proj.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-[#6F4E37] border border-transparent rounded-2xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
-                >
-                  📊 {t("Acessar Projeto", "View Project")}
-                </a>
+                <ul className="space-y-4 mb-10">
+                  {proj.features?.map((feat: string, fIndex: number) => (
+                    <li key={fIndex} className="flex items-center gap-3 text-sm text-[#3F2A1D]/80">
+                      <span className="text-[#8C5A3C] font-bold text-lg leading-none">›</span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* O "mt-auto" força o botão a ficar sempre alinhado na base do card */}
+                <div className="mt-auto pt-4">
+                  <a 
+                    href={proj.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-[#6F4E37] border border-transparent rounded-2xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
+                  >
+                    📊 {t("Acessar Projeto", "View Project")}
+                  </a>
+                </div>
               </div>
             </div>
           ))}
