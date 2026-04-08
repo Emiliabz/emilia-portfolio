@@ -31,6 +31,7 @@ const getTagStyle = (tag: string) => {
 export function ProjectsSection() {
   const { t, language } = useLanguage();
   const [currentPage, setCurrentPage] = useState(0);
+  const [currentNbPage, setCurrentNbPage] = useState(0);
   const projects = portfolioData[language]?.projects || [];
   const notebooks = portfolioData[language]?.notebooks || [];
 
@@ -42,6 +43,14 @@ export function ProjectsSection() {
 
   const nextPage = () => setCurrentPage((prev) => totalPages > 0 ? (prev + 1) % totalPages : 0);
   const prevPage = () => setCurrentPage((prev) => totalPages > 0 ? (prev - 1 + totalPages) % totalPages : 0);
+
+  // Lógica de Paginação para os Notebooks (3 por página)
+  const nbItemsPerPage = 3;
+  const totalNbPages = Math.ceil(notebooks.length / nbItemsPerPage);
+  const currentNotebooks = notebooks.slice(currentNbPage * nbItemsPerPage, (currentNbPage + 1) * nbItemsPerPage);
+
+  const nextNbPage = () => setCurrentNbPage((prev) => totalNbPages > 0 ? (prev + 1) % totalNbPages : 0);
+  const prevNbPage = () => setCurrentNbPage((prev) => totalNbPages > 0 ? (prev - 1 + totalNbPages) % totalNbPages : 0);
 
   return (
     <section id="projetos" className="py-24 px-6 bg-[#E5DFD3]">
@@ -131,15 +140,27 @@ export function ProjectsSection() {
         </div>
         {/* Nova Seção: Notebooks & Análises (Python) */}
         <div className="mt-32">
-          <div className="mb-12 text-center sm:text-left">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#3F2A1D] mb-4">{t("Notebooks & Análises (Python)", "Notebooks & Analytics (Python)")}</h2>
-            <p className="text-[#3F2A1D]/70 max-w-2xl text-lg mx-auto sm:mx-0">
-              {t("Explorações de dados, modelagem e análises desenvolvidas no Google Colab.", "Data explorations, modeling, and analytics developed in Google Colab.")}
-            </p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
+            <div className="text-center sm:text-left">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#3F2A1D] mb-4">{t("Notebooks & Análises (Python)", "Notebooks & Analytics (Python)")}</h2>
+              <p className="text-[#3F2A1D]/70 max-w-2xl text-lg mx-auto sm:mx-0">
+                {t("Explorações de dados, modelagem e análises desenvolvidas no Google Colab.", "Data explorations, modeling, and analytics developed in Google Colab.")}
+              </p>
+            </div>
+            
+            {/* Botões de Navegação - Notebooks */}
+            <div className="flex gap-3 mx-auto sm:mx-0">
+              <button onClick={prevNbPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
+                <ChevronLeft size={24} />
+              </button>
+              <button onClick={nextNbPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
+                <ChevronRight size={24} />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {notebooks.map((nb: any, index: number) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[380px]">
+            {currentNotebooks.map((nb: any, index: number) => (
               <div key={index} className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[1.5rem] p-6 shadow-sm transition-all hover:shadow-md flex flex-col">
                 <h3 className="text-xl font-serif font-bold text-[#3F2A1D] mb-2">{nb.title}</h3>
                 <p className="text-[#3F2A1D]/70 text-sm mb-5 line-clamp-2">{nb.description}</p>
@@ -170,6 +191,18 @@ export function ProjectsSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Bolinhas Indicadoras do Slideshow (Notebooks) */}
+        <div className="flex justify-center gap-2 mt-12">
+          {Array.from({ length: totalNbPages }).map((_, idx: number) => (
+            <button 
+              key={idx} 
+              onClick={() => setCurrentNbPage(idx)}
+              className={`h-2 rounded-full transition-all ${currentNbPage === idx ? "bg-[#8C5A3C] w-6" : "bg-[#8C5A3C]/30 w-2"}`}
+              aria-label={t(`Ir para a página ${idx + 1}`, `Go to page ${idx + 1}`)}
+            />
+          ))}
         </div>
 
         {/* Botão Acessar Códigos (GitHub) */}
