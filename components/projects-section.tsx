@@ -21,9 +21,10 @@ const getTagStyle = (tag: string) => {
   if (t.includes("python") || t.includes("pandas") || t.includes("numpy") || t.includes("data science") || t.includes("eda") || t.includes("streamlit")) {
     return "bg-[#F5E6E0] text-[#A0522D]"; 
   }
-  if (t.includes("sql") || t.includes("dax") || t.includes("power query")) return "bg-[#FDF2E9] text-[#D35400]";
-  if (t.includes("excel") || t.includes("financeira")) return "bg-[#EAE2D6] text-[#8C7B6C]"; 
-  if (t.includes("power bi") || t.includes("qlik") || t.includes("plotly")) return "bg-[#E7F0F4] text-[#4682A9]";
+  if (t.includes("power bi")) return "bg-[#FEF5D3] text-[#8A6A1C]"; 
+  if (t.includes("excel") || t.includes("financeira")) return "bg-[#E8F8EE] text-[#186A3B]"; 
+  if (t.includes("dax") || t.includes("sql") || t.includes("power query") || t.includes("qlik") || t.includes("plotly")) return "bg-[#EBF5FB] text-[#21618C]";
+  if (t.includes("ui design") || t.includes("ux")) return "bg-[#FDECEA] text-[#922B21]";
   
   return "bg-[#EAE2D6] text-[#8C7B6C]";
 };
