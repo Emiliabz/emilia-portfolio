@@ -88,7 +88,8 @@ export function ProjectsSection() {
                 </div>
               )}
 
-              <div className="p-5 flex flex-col flex-1">
+              {/* O "relative" foi adicionado para permitir o ícone absoluto na base */}
+              <div className="p-5 flex flex-col flex-1 relative">
                 <h3 className="text-2xl font-serif font-bold text-[#3F2A1D] mb-2">{proj.title}</h3>
                 
                 <p className="text-[#3F2A1D]/70 text-sm mb-4 leading-relaxed">
@@ -111,6 +112,17 @@ export function ProjectsSection() {
                     </li>
                   ))}
                 </ul>
+
+                {proj.disclaimer && (
+                  <div className="absolute bottom-5 right-5 group/tooltip z-10">
+                    <div className="flex items-center justify-center w-10 h-10 bg-[#FFF8F0] hover:bg-[#FFE8D6] border border-[#E59866]/40 rounded-full cursor-help shadow-sm text-base transition-colors">
+                      ⚠️
+                    </div>
+                    <div className="absolute bottom-full right-0 mb-2 w-56 bg-white border border-[#E59866]/20 p-3.5 rounded-xl shadow-xl text-[11px] text-[#3F2A1D]/80 font-medium leading-relaxed opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 pointer-events-none">
+                      {proj.disclaimer}
+                    </div>
+                  </div>
+                )}
 
                 {/* O "mt-auto" força o botão a ficar sempre alinhado na base do card */}
                 <div className="mt-auto mt-4">
