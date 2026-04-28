@@ -24,7 +24,7 @@ const getTagStyle = (tag: string) => {
   if (t.includes("power bi")) return "bg-[#FEF5D3] text-[#8A6A1C]"; 
   if (t.includes("excel") || t.includes("financeira")) return "bg-[#E8F8EE] text-[#186A3B]"; 
   if (t.includes("dax") || t.includes("sql") || t.includes("power query") || t.includes("qlik") || t.includes("plotly")) return "bg-[#EBF5FB] text-[#21618C]";
-  if (t.includes("ui design") || t.includes("ux")) return "bg-[#FDECEA] text-[#922B21]";
+  if (t.includes("ui design") || t.includes("ux") || t.includes("tkinter") || t.includes("rad")) return "bg-[#FDECEA] text-[#922B21]";
   
   return "bg-[#EAE2D6] text-[#8C7B6C]";
 };
@@ -195,11 +195,11 @@ export function ProjectsSection() {
 
                 <a 
                   href={nb.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  target={nb.link.startsWith("http") ? "_blank" : "_self"} 
+                  rel={nb.link.startsWith("http") ? "noopener noreferrer" : ""}
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#6F4E37] border border-transparent rounded-xl text-[#FDFBF9] font-bold text-sm hover:bg-[#5A3F2C] hover:text-white transition-all shadow-sm"
                 >
-                  <Github size={16} /> {t("Acessar Colab", "Open in Colab")}
+                  {nb.link.startsWith("http") ? <Github size={16} /> : "📁"} {nb.buttonText || t("Acessar Colab", "Open in Colab")}
                 </a>
               </div>
             ))}
