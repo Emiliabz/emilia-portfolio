@@ -43,7 +43,7 @@ export default function SaborRapidoPage() {
             </h2>
             <div className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2rem] p-4 md:p-6 shadow-sm">
               <img 
-                src="/assets/rad-sabor-rapido.png" 
+                src="/rad-sabor-rapido.png" 
                 alt="Documentação RAD Sabor Rápido" 
                 className="w-full h-auto rounded-xl shadow-inner"
               />
