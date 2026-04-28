@@ -64,10 +64,10 @@ export function ProjectsSection() {
           
           {/* Botões de Navegação */}
           <div className="flex gap-3">
-            <button onClick={prevPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
+            <button type="button" onClick={prevPage} className="relative z-10 cursor-pointer p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
               <ChevronLeft size={24} />
             </button>
-            <button onClick={nextPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
+            <button type="button" onClick={nextPage} className="relative z-10 cursor-pointer p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
               <ChevronRight size={24} />
             </button>
           </div>
@@ -145,6 +145,7 @@ export function ProjectsSection() {
           {Array.from({ length: totalPages }).map((_, idx: number) => (
             <button 
               key={idx} 
+              type="button"
               onClick={() => setCurrentPage(idx)}
               className={`h-2 rounded-full transition-all ${currentPage === idx ? "bg-[#8C5A3C] w-6" : "bg-[#8C5A3C]/30 w-2"}`}
               aria-label={t(`Ir para a página ${idx + 1}`, `Go to page ${idx + 1}`)}
@@ -163,10 +164,10 @@ export function ProjectsSection() {
             
             {/* Botões de Navegação - Notebooks */}
             <div className="flex gap-3 mx-auto sm:mx-0">
-              <button onClick={prevNbPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
+              <button type="button" onClick={prevNbPage} className="relative z-10 cursor-pointer p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Anteriores", "Previous")}>
                 <ChevronLeft size={24} />
               </button>
-              <button onClick={nextNbPage} className="p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
+              <button type="button" onClick={nextNbPage} className="relative z-10 cursor-pointer p-3 bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-full text-[#3F2A1D] hover:bg-[#8C5A3C] hover:text-white transition-colors shadow-sm active:scale-95" aria-label={t("Próximos", "Next")}>
                 <ChevronRight size={24} />
               </button>
             </div>
@@ -211,6 +212,7 @@ export function ProjectsSection() {
           {Array.from({ length: totalNbPages }).map((_, idx: number) => (
             <button 
               key={idx} 
+              type="button"
               onClick={() => setCurrentNbPage(idx)}
               className={`h-2 rounded-full transition-all ${currentNbPage === idx ? "bg-[#8C5A3C] w-6" : "bg-[#8C5A3C]/30 w-2"}`}
               aria-label={t(`Ir para a página ${idx + 1}`, `Go to page ${idx + 1}`)}

@@ -36,24 +36,17 @@ export default function SaborRapidoPage() {
             </div>
           </section>
 
-          {/* Visualização de PDF */}
+          {/* Visualização da Documentação */}
           <section>
             <h2 className="text-2xl font-serif font-bold text-[#3F2A1D] mb-6 border-l-4 border-[#8C5A3C] pl-4">
               Documentação do Projeto
             </h2>
-            <div className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2rem] p-4 md:p-6 shadow-sm h-[70vh] min-h-[500px]">
-              <object 
-                data="/assets/documento.pdf" 
-                type="application/pdf" 
-                className="w-full h-full rounded-xl"
-              >
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <p className="mb-4">Parece que seu navegador não suporta a visualização direta de PDFs.</p>
-                  <a href="/assets/documento.pdf" className="px-6 py-3 bg-[#6F4E37] text-white rounded-xl font-bold hover:bg-[#5A3F2C] transition-all">
-                    Baixar o PDF da Documentação
-                  </a>
-                </div>
-              </object>
+            <div className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2rem] p-4 md:p-6 shadow-sm">
+              <img 
+                src="/assets/rad-sabor-rapido.png.png" 
+                alt="Documentação RAD Sabor Rápido" 
+                className="w-full h-auto rounded-xl shadow-inner"
+              />
             </div>
           </section>
 
