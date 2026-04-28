@@ -26,11 +26,14 @@ export default function SaborRapidoPage() {
             <div className="bg-[#FDFBF9] border border-[#8C5A3C]/10 rounded-[2rem] p-4 md:p-6 shadow-sm">
               <video 
                 controls 
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full rounded-xl bg-black outline-none shadow-inner"
-                preload="metadata"
+                preload="auto"
               >
-                {/* Lembre-se de colocar este arquivo dentro da sua pasta "public/assets/" */ }
-                <source src="/assets/projeto-rad.mp4" type="video/mp4" />
+                <source src="/projeto-rad.mp4" type="video/mp4" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
             </div>
